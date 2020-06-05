@@ -1,0 +1,47 @@
+﻿@model IEnumerable<KitapKurdu.Models.Book>
+
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitaplar</h2>
+
+<table id="books" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Kitap</th>
+            <th>Kategori</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#books").DataTable({
+                language: {
+                    info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                    infoEmpty: "Gösterilecek hiç kayıt yok.",
+                    loadingRecords: "Kayıtlar yükleniyor.",
+                    zeroRecords: "Tablo boş",
+                    search: "Arama:"
+                },
+                ajax: {
+                    url: "/api/books",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "genre.name"
+                    }
+                ]
+            });
+        });
+    </script>
+}

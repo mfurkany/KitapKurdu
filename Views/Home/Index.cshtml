@@ -1,0 +1,156 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<html>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="~/Content/logo.png" height="150px" width="200px">
+        </div>
+        <div class="sub-container">
+            <span class="gor">KİTAPLARA GÖZ AT.</span>
+            <p class="oku">DİLEDİĞİN KİTABI KİRALA.OKUMAYI BIRAKMA.</p>
+            <a href="https://localhost:44334/Account/Register" button class="katıl-btn">
+                KİTAPKURDU'NA ŞİMDİ KATIL.
+            </a>
+        </div>
+    </div>
+    <div class="wrapper">
+        <section id="section1">
+            <a href="#section3" class="arrow__btn">‹</a>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0000000064464-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0001750151001-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0000000301796-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0000000204878-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0000000637328-1.jpg" />
+            </div>
+            <a href="#section2" class="arrow__btn">›</a>
+        </section>
+        <section id="section2">
+            <a href="#section1" class="arrow__btn">‹</a>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0001786586001-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0000000222780-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0001806049001-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0000000348285-1.jpg" />
+            </div>
+            <div class="item">
+                <img src="https://i.idefix.com/cache/500x400-0/originals/0000000206019-1.jpg" />
+            </div>
+        </section>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+</body>
+</html>
+
+<style>
+
+    .container {
+        margin-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .sub-container {
+        margin-top: 60px;
+    }
+
+    .gor {
+        font-size: 80px;
+        font-weight: 700;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .oku {
+        font-size: 40px;
+        font-weight: 300;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-bottom: 30px;
+    }
+
+    .katıl-btn {
+        border: 0;
+        background: #0094ff;
+        padding: 20px 80px;
+        font-size: 40px;
+        color: #fff;
+        letter-spacing: 2px;
+        word-spacing: 5px;
+        opacity: 0.9;
+    }
+
+    .katıl-btn:hover {
+            opacity: 1;
+            color:#fff;
+    }
+
+    .wrapper {
+    display: grid;
+    margin-top:50px;
+    grid-template-columns: repeat(3, 100%);
+    overflow: hidden;
+    scroll-behavior: smooth;
+    }
+    .wrapper section {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    margin: 20px 0;
+    }
+    .wrapper section .item {
+    padding: 0 2px;
+    transition: 250ms all;
+    }
+    .wrapper section .item:hover {
+    margin: 0 40px;
+    transform: scale(1.2);
+    }
+    .wrapper section a {
+    position: absolute;
+    color: #fff;
+    text-decoration: none;
+    font-size: 6em;
+    background: black;
+    width: 80px;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
+    }
+    .wrapper section a:nth-of-type(1) {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(-90deg, rgba(0, 0, 0, 0) 0%, gray 100%);
+    }
+    .wrapper section a:nth-of-type(2) {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, gray 100%);
+    }
+</style>

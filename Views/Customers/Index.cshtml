@@ -1,0 +1,77 @@
+﻿@model IEnumerable<KitapKurdu.Models.Customer>
+
+
+@{
+    ViewBag.Title = "Kullanıcılar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kullanıcılar</h2>
+<p>
+    @Html.ActionLink("Yeni Kullanıcı", "New", "Customers", null, new { @class = "btn btn-primary" })
+</p>
+
+<table id="customers" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Kullanıcılar</th>
+            <th>Üyelik Tipi</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+@section scripts
+   {
+    <script>
+        $(document).ready(function () {
+            var table = $("#customers").DataTable({
+                language: {
+                    info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                    infoEmpty: "Gösterilecek hiç kayıt yok.",
+                    loadingRecords: "Kayıtlar yükleniyor.",
+                    zeroRecords: "Tablo boş",
+                    search: "Arama:"
+                },
+                ajax: {
+                    url: "/api/customers",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a href='/customers/edit/" + customer.id + "'>" + customer.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "membershipType.name"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-customer-id=" + data + ">Sil</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#customers").on("click", " .js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Bu kullanıcıyı silmek istediğinize emin misiniz?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/customers/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

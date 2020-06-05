@@ -1,0 +1,74 @@
+﻿@model IEnumerable<KitapKurdu.Models.Book>
+
+@{
+    ViewBag.Title = "Books";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kitaplar</h2>
+<p>
+    @Html.ActionLink("Yeni Kitap", "New", "Books", null, new { @class = "btn btn-primary" })
+</p>
+
+<table id="books" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Kitap</th>
+            <th>Kategori</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#books").DataTable({
+                language: {
+                    info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                    infoEmpty: "Gösterilecek hiç kayıt yok.",
+                    loadingRecords: "Kayıtlar yükleniyor.",
+                    zeroRecords: "Tablo boş",
+                    search: "Arama:"
+                },
+                ajax: {
+                    url: "/api/books",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, book) {
+                            return "<a href='/books/edit/" + book.id + "'>" + book.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "genre.name"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-book-id=" + data + ">Sil</button>";
+                        }
+                    }
+                ]
+            });
+            $("#books").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("Bu kitabı silmek istediğinize emin misiniz?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/books/" + button.attr("data-book-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
