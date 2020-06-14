@@ -71,7 +71,7 @@ namespace KitapKurdu.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View();
             }
 
             // This doesn't count login failures towards account lockout
@@ -80,7 +80,8 @@ namespace KitapKurdu.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    // return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Menu");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

@@ -20,9 +20,18 @@ namespace KitapKurdu.Controllers.Api
             _context = new ApplicationDbContext();
         }
 
-        public IEnumerable<BookDto> GetBooks()
+        public IEnumerable<BookDto> GetBooks(string query = null)
         {
-                 return _context.Books.Include(m => m.Genre).ToList().Select(Mapper.Map<Book, BookDto>);
+            var booksQuery = _context.Books
+                .Include(b => b.Genre)
+                .Where(b => b.NumberInStock > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                booksQuery = booksQuery.Where(b => b.Name.Contains(query));
+
+            return booksQuery
+                .ToList()
+                .Select(Mapper.Map<Book, BookDto>);
         }
 
         public IHttpActionResult GetBook(int id)

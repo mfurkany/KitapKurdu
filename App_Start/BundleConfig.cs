@@ -12,7 +12,9 @@ namespace KitapKurdu
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/bootbox.js",
+                        "~/Scripts/typeahead.bundle.js",
                         "~/Scripts/datatables/jquery.datatables.js",
+                        "~/Scripts/toastr.js",
                         "~/Scripts/datatables/datatables.bootstrap.js"
                         ));
 
@@ -26,6 +28,8 @@ namespace KitapKurdu
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap - lumen.css",
+                      "~/Content/typeahead.css",
+                      "~/Content/toastr.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
                       "~/Content/site.css"));
         }

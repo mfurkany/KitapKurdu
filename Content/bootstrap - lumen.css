@@ -2554,7 +2554,7 @@ output {
 }
 .form-control {
   display: block;
-  width: 100%;
+  max-width:initial;
   height: 38px;
   padding: 7px 12px;
   font-size: 14px;
@@ -4434,11 +4434,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #202020;
+  border-color: #202020;
 }
 .navbar-default .navbar-brand {
-  color: #333333;
+  color: #fff;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -4453,7 +4453,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #158cba;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -6650,11 +6650,12 @@ button.close {
   border-width: 0 1px 4px 1px;
 }
 .btn {
-  padding: 9px 12px 7px;
-  border-width: 0 1px 4px 1px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
+    padding: 9px 12px 7px;
+    border-radius: 10px;
+    border-width: 0 1px 4px 1px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 .btn:hover {
   margin-top: 1px;

@@ -33,7 +33,7 @@ namespace KitapKurdu.Controllers
 
         public ActionResult Details(int id)
         {
-            var book = _context.Books.Include(m => m.Genre).SingleOrDefault(m => m.Id == id);
+            var book = _context.Books.Include(b => b.Genre).SingleOrDefault(b => b.Id == id);
 
             if (book == null)
                 return HttpNotFound();
@@ -68,24 +68,6 @@ namespace KitapKurdu.Controllers
             return View("BookForm", viewModel);
         }
 
-        // GET: Movies/Random
-        public ActionResult Random()
-        {
-            var book = new Book() { Name = "Shrek!" };
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1" },
-                new Customer { Name = "Customer 2" }
-            };
-
-            var viewModel = new RandomBookViewModel
-            {
-                Book = book,
-                Customers = customers
-            };
-
-            return View(viewModel);
-        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = RoleName.CanManageBooks)]
@@ -108,7 +90,7 @@ namespace KitapKurdu.Controllers
             }
             else
             {
-                var bookInDb = _context.Books.Single(m => m.Id == book.Id);
+                var bookInDb = _context.Books.Single(b => b.Id == book.Id);
                 bookInDb.Name = book.Name;
                 bookInDb.GenreId = book.GenreId;
                 bookInDb.NumberInStock = book.NumberInStock;

@@ -12,7 +12,7 @@ namespace KitapKurdu.App_Start
     {
         public MappingProfile()
         {
-            // Domain to Dto
+            // domainden dtoya
             Mapper.CreateMap<Customer, CustomerDto>();
             Mapper.CreateMap<Book, BookDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
