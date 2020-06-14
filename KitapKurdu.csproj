@@ -183,21 +183,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="AspNetRoles.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserClaims.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserLogins.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUsers.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Books.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
     <Compile Include="Controllers\Api\BooksController.cs" />
@@ -208,40 +193,13 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\RentalsController.cs" />
-    <Compile Include="Customers.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="C__MigrationHistory.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
     <Compile Include="Dtos\BookDto.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
     <Compile Include="Dtos\GenreDto.cs" />
     <Compile Include="Dtos\MembershipTypeDto.cs" />
     <Compile Include="Dtos\NewRentalDto.cs" />
-    <Compile Include="ERDiagram.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERDiagram.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ERDiagram.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
-    <Compile Include="ERDiagram.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ERDiagram.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Genres.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="MembershipTypes.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202005241202030_InitialModel.cs" />
     <Compile Include="Migrations\202005241202030_InitialModel.Designer.cs">
@@ -258,10 +216,6 @@
     <Compile Include="Migrations\202005241257525_AddMembershipType.cs" />
     <Compile Include="Migrations\202005241257525_AddMembershipType.Designer.cs">
       <DependentUpon>202005241257525_AddMembershipType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202005241300098_PopulateMembershipTypes.cs" />
-    <Compile Include="Migrations\202005241300098_PopulateMembershipTypes.Designer.cs">
-      <DependentUpon>202005241300098_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202005241325429_ApplyAnnotationsToCustomerName.cs" />
     <Compile Include="Migrations\202005241325429_ApplyAnnotationsToCustomerName.Designer.cs">
@@ -299,10 +253,6 @@
     <Compile Include="Migrations\202006081043290_AddRental.Designer.cs">
       <DependentUpon>202006081043290_AddRental.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202006081059227_AddNumberAvailableToBook.cs" />
-    <Compile Include="Migrations\202006081059227_AddNumberAvailableToBook.Designer.cs">
-      <DependentUpon>202006081059227_AddNumberAvailableToBook.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -315,9 +265,6 @@
     <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rentals.cs">
-      <DependentUpon>ERDiagram.tt</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BookFormViewModel.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -439,16 +386,6 @@
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\typeahead.css" />
-    <Content Include="ERDiagram.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ERDiagram.edmx</DependentUpon>
-      <LastGenOutput>ERDiagram.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="ERDiagram.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ERDiagram.edmx</DependentUpon>
-      <LastGenOutput>ERDiagram.cs</LastGenOutput>
-    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -463,13 +400,6 @@
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Content\toastr.scss" />
     <Content Include="Content\toastr.less" />
-    <EntityDeploy Include="ERDiagram.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ERDiagram.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ERDiagram.edmx.diagram">
-      <DependentUpon>ERDiagram.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
@@ -626,9 +556,6 @@
     <EmbeddedResource Include="Migrations\202005241257525_AddMembershipType.resx">
       <DependentUpon>202005241257525_AddMembershipType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202005241300098_PopulateMembershipTypes.resx">
-      <DependentUpon>202005241300098_PopulateMembershipTypes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005241325429_ApplyAnnotationsToCustomerName.resx">
       <DependentUpon>202005241325429_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
@@ -655,9 +582,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006081043290_AddRental.resx">
       <DependentUpon>202006081043290_AddRental.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202006081059227_AddNumberAvailableToBook.resx">
-      <DependentUpon>202006081059227_AddNumberAvailableToBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
